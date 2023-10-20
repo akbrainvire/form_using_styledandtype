@@ -30,7 +30,7 @@ const CheckboxComponent: React.FC<ICheckBox> = (props) => {
   }, [options]);
 
   const handleCheckboxChange = (option: boolean, opt: string) => {
-    console.log(options);
+    // console.log(options);
     setOptions({
       ...options,
       [opt]: option,

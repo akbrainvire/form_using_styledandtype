@@ -27,7 +27,7 @@ const Form: React.FC = () => {
     },
   });
 
-  const [error, setError] = useState({
+  const initialError = {
     name: {
       firstname: "",
       secondname: "",
@@ -35,7 +35,8 @@ const Form: React.FC = () => {
     email: "",
     phone: "",
     dob: "",
-  });
+  };
+  const [error, setError] = useState(initialError);
 
   const handleAddressData = (data: any) => {
     setData((prev) => {
@@ -49,7 +50,7 @@ const Form: React.FC = () => {
       };
     });
   };
-  const onSubmitHandler = () => {
+  const validateFom = () => {
     let isValid = true;
     let newerror = { ...error };
     if (
@@ -83,7 +84,15 @@ const Form: React.FC = () => {
     return isValid;
   };
 
-  console.log(error);
+  const onSubmitHandler = () => {
+    const isValid = validateFom();
+
+    if (isValid) {
+      console.log("Form Submitted SuccessFully");
+    }
+  };
+
+  // console.log(error);
   const handleCheckBoxData = (data: any) => {
     setData((prev) => {
       return {
