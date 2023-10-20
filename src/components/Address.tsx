@@ -7,7 +7,11 @@ import {
 } from "./styles/InputStyle";
 import { Country, State, City } from "country-state-city";
 
-const Address: React.FC = () => {
+interface IType {
+  handleAddressData: (data: any) => void;
+}
+
+const Address: React.FC<IType> = (props) => {
   const [location, setLocation] = useState({
     country: {
       name: null,
@@ -35,6 +39,10 @@ const Address: React.FC = () => {
 
     setCountries(countryOption);
   }, []);
+
+  useEffect(() => {
+    props.handleAddressData(location);
+  }, [location]);
 
   const handleCountryChange = (e: any) => {
     const option = countries.find((country) => country.name === e.target.value);
@@ -70,16 +78,16 @@ const Address: React.FC = () => {
 
   return (
     <>
-      <Label>4. Address*</Label>
+      <Label>4. Address</Label>
       <AddressContainer>
         <NameStyle>
           <StyledSelect
             onChange={(e) => handleCountryChange(e)}
-            defaultValue="Select"
+            defaultValue="Select Country"
             name="country"
             id="country"
           >
-            <option value="Select Country" selected disabled>
+            <option value="Select Country" disabled>
               Select Country
             </option>
             {countries.map((country) => {
@@ -96,11 +104,11 @@ const Address: React.FC = () => {
           <StyledSelect
             onChange={handleStateChange}
             placeholder="Select State"
-            defaultValue="Select"
+            defaultValue="Select State"
             name="state"
             id="state"
           >
-            <option value="Select State" selected disabled>
+            <option value="Select State" disabled>
               Select State
             </option>
             {states.map((state) => {
@@ -117,11 +125,11 @@ const Address: React.FC = () => {
         <NameStyle>
           <StyledSelect
             onChange={handleCityChange}
-            defaultValue="Select"
+            defaultValue="Select City"
             name="city"
             id="city"
           >
-            <option value="Select City" selected disabled>
+            <option value="Select City" disabled>
               Select City
             </option>
             {cities.map((city) => {

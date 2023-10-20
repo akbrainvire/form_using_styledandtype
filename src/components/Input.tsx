@@ -8,6 +8,7 @@ const Input = (props: any) => {
         icon={props.icon}
         type={props.type}
         placeholder={props.placeholder}
+        onChange={props.onChange}
       />
     </>
   );

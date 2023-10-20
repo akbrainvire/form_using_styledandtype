@@ -59,3 +59,36 @@ export const AddressContainer = styled.div`
     width: 40%;
   }
 `;
+
+export const CheckboxLabel = styled.label`
+  display: block;
+  border: 1px solid black;
+  padding: 15px;
+  outline: none;
+  margin: 0.2vw 1vw;
+`;
+
+export const CheckboxInput = styled.input`
+  margin-right: 8px;
+`;
+export const TandCondition = styled.div`
+  margin-top: 1.5vw;
+`;
+
+export const Button = styled.button`
+  padding: 10px;
+  font-size: 18px;
+  color: ${(props) => (props.disabled ? "black" : "white")};
+  background-color: ${(props) => (props.disabled ? "grey" : "black")};
+  outline: none;
+  margin: 1vw;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  border: 1px solid black;
+`;
+
+export const ErrorBox = styled.span`
+  color: red;
+  font-size: 11px;
+  position: relative;
+  left: 15px;
+`;
