@@ -92,7 +92,7 @@ const CheckboxComponent: React.FC<ICheckBox> = (props) => {
         <CheckboxInput
           type="checkbox"
           checked={options.other}
-          onChange={() => handleCheckboxChange(!options["other"], "other")}
+          onChange={() => handleCheckboxChange(!options["other"], otherData)}
         />
         Other
       </CheckboxLabel>

@@ -88,7 +88,7 @@ const Form: React.FC = () => {
     const isValid = validateFom();
 
     if (isValid) {
-      console.log("Form Submitted SuccessFully");
+      console.log("Form Submitted SuccessFully -> ", data);
     }
   };
 
